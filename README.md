@@ -2,8 +2,10 @@
 ## About
 <p align='justify'>We are going to use <a href=https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic>Wisconsin's Breast Cancer Diagnosis dataset</a>.The dataset has 569 samples and 32 variables. These variables were obtained through the analysis of the characteristics of the cellular nuclei from digitized images of breast tissue samples acquired through fine needle aspiration [FNA] biopsy techniques. An example of two different images obtained through these techniques can be seen below, a benign case on the left and malign on the right. </p>
 
-![FNA Images of both Benign and Malign diagnosis](imgs/FNA.png)
-  
+<p align="center">
+  <img src="imgs/FNA.png" alt="[FNA Images of both Benign and Malign cases">
+</p>
+
 <p align='justify'>If we take a look at the variables we can see all but the id and target variable ('diagnosis') are presented divided in three metrics according to their suffix: _mean (average of all samples), _se (standard error) and _worst (average of three worst values). Brief explanation of these variables: </p>
 <ul>
 <li><b>radius:</b> distance from the center of the nuclei to points in the perimeter
