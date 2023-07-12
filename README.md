@@ -40,9 +40,12 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 <p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
 Final results for Logistic:
   
+<div align="center"> 
+
 | Model | Precision | Recall | F1 Score |
 |----------|----------|----------|----------|
 | Log. Reg.    | 1.0  | 0.952381  | 0.975610  |
 | MLP    | 1.0  | 0.976190  | 0.987952  |
 
+</div>
 </p>
