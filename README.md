@@ -32,9 +32,12 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 <li>EDA
 <li>Data Preprocessing
 <li>Feature Engineering and Selection
-<li>Models development
-<li>Model selection and final analysis
+<li>Model development
+<li>Model evaluation and final analysis
 </ol></p>
+
+## EDA
+<p align='justify'>For starters we are going to divide our data into three different dataframes each addressing a different statistic (mean, se or worst) to ease our analysis.</p>
 
 ## Conclusions
 <p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
