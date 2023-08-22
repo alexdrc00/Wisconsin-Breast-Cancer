@@ -37,8 +37,14 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 </ol></p>
 
 ## EDA
-<p align='justify'>For starters we are going to divide our data into three different dataframes each addressing a different statistic (mean, se or worst) to ease our analysis.</p>
+<p align='justify'>For starters we confirm there are no missing values or duplicates. If there were missing values in any columns we would have to check the extent and proportion to choose our approach. Now we will set 'id' column as index, since it is unique and serves no other purpose and check for correlation in our data.</p>
 
+<p align='justify'>We can see strong correlation between size related (radius, area and perimeter) variables in all measures as well as between concavity, concave points and compactness. Mean and worst values as it is to be expected also show high correlation. Given the high number of variables and to avoid multicolinearity we will proceed to apply feature selection techniques (L1, PCA, RFE, RFI...). To ease further analysis, we will split our data into three different dataframes each addressing a different statistic (mean, se or worst) since the relationship between the variables its similar across all statistics and among them.</p>
+
+<p align="center">
+  <img src="imgs/corr_matrix_all.png" alt="[correlation matrix]">
+</p>
+ 
 ## Conclusions
 <p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
 Final results for Logistic:
