@@ -24,14 +24,14 @@ As for <b>id</b> and <b>diagnosis</b> they are just a unique identifier and the 
 ## Procedure
 <p align='justify'>The objective will be to develop an effective model for breast cancer diagnosis and look into the main features that suggest this diagnosis. The metric for success we are going to use is the f1-scoe. We could conside scenarios where other metrics might be more suitable:
 <ul>
-<li> Wrongly diagnosing a patient's cell as malign and thus unnecessaily moving them to the proceding treatment carries severe consequences and threatens the patient's life. In that case, we would want to maximize precision so we do not commit any type 1 error. 
+<li> Wrongly diagnosing a patient's cell as malign and thus unnecessarily moving them to the proceding treatment carries severe consequences and threatens the patient's life. In that case, we would want to maximize precision so we do not commit any type I error. 
 <li> (Most logical one) After diagnosing a patient's cell as malign, further test will be carried out to confirm the diagnosis. In this case we want to reduce the number of false negatives therefore we are going to maximize recall.
 </ul>
 Recall would be a logical choice too, however, we are going to use f1-score this time and aim for a compromise. The steps will be the standard:
 <ol>
-<li>Data acquisition
-<li>Preprocessing and Exploratory Data Analysis
-<li>Split the data
+<li>EDA
+<li>Data Preprocessing
+<li>Feature Engineering and Selection
 <li>Models development
 <li>Model selection and final analysis
 </ol></p>
