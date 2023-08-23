@@ -45,11 +45,14 @@ Recall would be a logical choice too, however, we are going to use f1-score this
   <img src="imgs/corr_matrix_all.png" alt="[correlation matrix]">
 </p>
 
-<p align='justify'>We can further confirm the issue with the multicolinearity by printing and checking VIF, having almost all values above the standard acceptable threshold of 10 and some with extreme values.</p>
+<p align='justify'>We can further confirm the issue with the multicolinearity by printing and checking VIF, having almost all values above the standard acceptable threshold of 10 and some with extreme values. We can take a deepe look at the relationships between variables by taking a look at the pairplot, seeing some seemingly linear relationships between some of the variables.</p></br>
 
 <p align="center">
   <img src="imgs/mean_pairplot.png" alt="[mean pairplot]">
 </p>
+
+## Data Preprocessing
+<p align='justify'>First of all, we are going to encode the labels of our target variable. Since there are no missing values, we will discuss outliers.</p>
 
  
 ## Conclusions
