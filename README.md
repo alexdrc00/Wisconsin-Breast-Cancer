@@ -59,19 +59,57 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 </p>
 
 <p align="center">
-  <img src="imgs/outliers_2d" alt="[outliers_2d]">
+  <img src="imgs/outliers_2d.png" alt="[outliers_2d]">
 </p>
- 
+
+<p align='justify'>As for class imbalances, there is some, however, given the difference it's not too big and to avoid overfitting our model we are going to stick with the currenst samples and stratify when splitting the data.</p>
+
+<p align="center">
+  <img src="imgs/imbalanced.png" alt="[imbalance]">
+</p>
+
+## Feature Selection
+<p align='justify'>As mentioned earlier, to deal with multicolinearity and reduce the number of features we are going to apply some feature selection, in this case we will use L1. For that we did some fine tuning of the C hyperparameter to choose a good compromise between the complexity of the model and the number of features. After training, we decide to opt for C=0.5 as to not remove too many features and have a simple model (C=0.1 case) and not get too far away from optimum (C=1.0 for example)</p></br>
+
+<p align="center">
+  <img src="imgs/L1_training.png" alt="[L1 training]">
+  <img src="imgs/L1_coefs.png" alt="[L1 coefs]">
+</p>
+
+<p align='justify'>Examining the weights of the selected features, our model indicates that the most important variable for cancer diagnosis is <b>radius_worst</b> followed by a big margin by texture_worst and concave_points_mean. After setting a threshold of 0.15 importance for our selection we are left with 8 variables to work with: 'concave points_mean' 'radius_se' 'radius_worst' 'texture_worst' 'area_worst' 'smoothness_worst' 'concave points_worst' 'symmetry_worst'.</p></br>
+
+<p align="center">
+  <img src="imgs/L1_features.png" alt="[features L1]">
+</p>
+
+## Model Development and Evaluation
+
+<p align='justify'>Our baseline L1 Logistic Regression Model already provides very promising results, nevertheless, we will try out two more models: Random Forest using our selected features and an MLP with the raw data to leave the conclussions up to the neural net. After training, we obtained the best results from the MLP as shown below, with an F1 score of <b>0.987952</b>.</p></br>
+
+<p align="center"> 
+  <img src="imgs/cm_ts_mlp.png" alt="[L1 training]">
+  <img src="imgs/learning_curve_mlp.png" alt="[L1 training]">
+  <img src="imgs/metrics_mlp.png" alt="[L1 coefs]">
+</p>
+
+<p align='justify'>Random Forest did not perform as well, however we took a look at the assigned feature importance from the model and gatheres similar conclussions as from the Lasso. The most important variables seem to be <b>radius_worst</b> and <b>concave_points_mean</b></p></br>
+
+<p align="center">
+  <img src="imgs/feature.png" alt="[features RF]">
+</p>
+
 ## Conclusions
-<p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
-Final results for Logistic:
+<p align='justify'>The best results were obtained by the MLP (fed with the raw data). L1 Logistic Regression achieved results almost as good as MLP. While the MLP achieves the highest F1 score, I would stick with Logistic Regression for its simplicity and explainability which might come in handy if required to provide explanations. The determining factors for cancer diagnosis indicated by the model were <b>radius_worst</b> and <b>concave_points_mean</b>.
+  
+<p align='center'>Final results:<p align='justify'>
   
 <div align="center"> 
 
 | Model | Precision | Recall | F1 Score |
 |----------|----------|----------|----------|
-| Log. Reg.    | 1.0  | 0.952381  | 0.975610  |
 | MLP    | 1.0  | 0.976190  | 0.987952  |
+| L1 Log. Reg.    | 1.0  | 0.952381  | 0.975610  |
+| Random Forest    | 1.0  | 0.928571  | 0.962963  |
 
 </div>
 </p>
