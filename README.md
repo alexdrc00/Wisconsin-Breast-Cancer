@@ -45,15 +45,22 @@ Recall would be a logical choice too, however, we are going to use f1-score this
   <img src="imgs/corr_matrix_all.png" alt="[correlation matrix]">
 </p>
 
-<p align='justify'>We can further confirm the issue with the multicolinearity by printing and checking VIF, having almost all values above the standard acceptable threshold of 10 and some with extreme values. We can take a deepe look at the relationships between variables by taking a look at the pairplot, seeing some seemingly linear relationships between some of the variables.</p></br>
+<p align='justify'>We can further confirm the issue with the multicolinearity by printing and checking VIF, having almost all values above the standard acceptable threshold of 10 and some with extreme values. We can take a better look at the relationships between variables by taking a look at the pairplot, seeing some seemingly linear relationships between some of the variables.</p></br>
 
 <p align="center">
   <img src="imgs/mean_pairplot.png" alt="[mean pairplot]">
 </p>
 
 ## Data Preprocessing
-<p align='justify'>First of all, we are going to encode the labels of our target variable. Since there are no missing values, we will discuss outliers.</p>
+<p align='justify'>First of all, we are going to encode the labels of our target variable. Since there are no missing values, we will discuss outliers. Looking at the box plots we can confirm the pressence of some unidimensional ones, and taking a closer look at the pairplots we can also detect bidimensional outliers. Given the nature of the data and our lack of knowledge on the field, we are going to assume these are reasonable values and not caused by some human or machine transcription mistake, and therefore we will assume they provide useful information and keep them.</p>
 
+<p align="center">
+  <img src="imgs/boxplot-df-mean.png" alt="[mean boxplot]">
+</p>
+
+<p align="center">
+  <img src="imgs/outliers_2d" alt="[outliers_2d]">
+</p>
  
 ## Conclusions
 <p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
