@@ -44,6 +44,13 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 <p align="center">
   <img src="imgs/corr_matrix_all.png" alt="[correlation matrix]">
 </p>
+
+<p align='justify'>We can further confirm the issue with the multicolinearity by printing and checking VIF, having almost all values above the standard acceptable threshold of 10 and some with extreme values.</p>
+
+<p align="center">
+  <img src="imgs/mean_pairplot.png" alt="[mean pairplot]">
+</p>
+
  
 ## Conclusions
 <p align='justify'>The most promising results have been obtained by the MLP (without PCA preprocessing) and the Logistic Regression once added some fine-tuning and preprocessing. While the MLP achieves the highest F1 score with a centesimal above its contrary, and recall, I would stick with logistic regression for its simplicity and high explainability, however, again if we were to just go for results, MLP would then be the choice. RF found concativity_points_worst to be the most relevant variable in the detection, further analysis could be done with XAI such as SHAP values.
