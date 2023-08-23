@@ -4,7 +4,7 @@ def predict(data):
     '''Function to make predictions
     '''
     # Load Model
-    model = load('LogReg.joblib')
+    model = load('lasso_fit.joblib')
 
     # Make predictions
     predictions = model.predict(data)
