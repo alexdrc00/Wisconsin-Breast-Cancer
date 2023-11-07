@@ -51,8 +51,7 @@ Recall would be a logical choice too, however, we are going to use f1-score this
   <img src="imgs/mean_pairplot.png" alt="[mean pairplot]">
 </p>
 
-## Data Preprocessing
-<p align='justify'>First of all, we are going to encode the labels of our target variable. Since there are no missing values, we will discuss outliers. Looking at the box plots we can confirm the pressence of some unidimensional ones, and taking a closer look at the pairplots we can also detect bidimensional outliers. Given the nature of the data and our lack of knowledge on the field, we are going to assume these are reasonable values and not caused by some human or machine transcription mistake, and therefore we will assume they provide useful information and keep them.</p>
+<p align='justify'>Looking at the box plots and taking a closer look at the pairplots we can possible outliers. Given the nature of the data and our lack of knowledge on the field, we are going to assume these are reasonable values and not caused by some human or machine transcription mistake, and therefore we will assume they provide useful information and keep them.</p>
 
 <p align="center">
   <img src="imgs/boxplot-df-mean.png" alt="[mean boxplot]">
@@ -61,6 +60,9 @@ Recall would be a logical choice too, however, we are going to use f1-score this
 <p align="center">
   <img src="imgs/outliers_2d.png" alt="[outliers_2d]">
 </p>
+
+## Data Preprocessing
+<p align='justify'>First of all, we are going to encode the labels of categorical variables in this case of our target variable. We will also apply standard scaling to our numerical variables before feeding the data to the models. Lastly we will split the data into training (80%) and testing (20%)</p>
 
 <p align='justify'>As for class imbalances, there is some, however, given the difference it's not too big and to avoid overfitting our model we are going to stick with the currenst samples and stratify when splitting the data.</p>
 
